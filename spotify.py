@@ -4,7 +4,7 @@ import pyautogui
 from selenium import webdriver
 import time
 
-song_location = os.path.abspath(os.getcwd()+'\\Songs')  #create  a song folder in spotify folder before executing
+song_location = os.path.abspath(os.getcwd()+'\\Songs')  #create  a 'Songs' folder at the same place where your script is before executing
 
 os.chdir(song_location)
 
@@ -26,7 +26,7 @@ options.add_experimental_option('excludeSwitches',['enable-logging'])
 
 options.add_argument(r"user-data-dir={x}".format(x=os.getcwd()+'\\'+'user'))      
 
-driver  = webdriver.Chrome(options=options, executable_path=r'C:\Program Files (x86)\chromedriver.exe')
+driver  = webdriver.Chrome(options=options, executable_path=r'C:\Program Files (x86)\chromedriver.exe')        #use your own chromedriver path
 
 driver.get("https://web.whatsapp.com/")
 
