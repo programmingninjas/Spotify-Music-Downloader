@@ -14,7 +14,16 @@ print("Song is downloading till the spotdl exe disappears")
 
 data = run(song_link,capture_output=True)
 
-song_name = ((data.stdout)[33:len(data.stdout)-2]).decode('utf-8')
+output = (data.stdout).decode('utf-8')
+
+file_names = [x for x in os.listdir(os.getcwd())]
+
+for song_name in file_names:
+
+    if song_name.replace('.mp3','') in output:
+
+        song_path = os.getcwd()+'\\'+song_name
+        
 
 #Code for sending song to your or someone else mobile
 
@@ -43,7 +52,7 @@ image.click()
 
 time.sleep(2)
 
-pyautogui.typewrite(os.getcwd()+'\\'+song_name+'.mp3')
+pyautogui.typewrite(song_path)
 pyautogui.press('enter')
 
 time.sleep(2)
